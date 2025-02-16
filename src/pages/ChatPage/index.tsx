@@ -1,12 +1,10 @@
-import { Container } from "../../shared/shared";
 import { ChatItemList } from "./components";
 
-const ChatPage = () => {
+export const ChatPage = () => {
   return (
-    <Container className="flex">
+    <div className="h-full flex">
       <ChatItemList />
-    </Container>
+      <div className="w-full">1</div>
+    </div>
   );
 };
-
-export default ChatPage;

@@ -1,11 +1,9 @@
-import { Container } from "../../shared/shared";
+import { Container } from "../../components/shared";
 
-const SettingsPage = () => {
+export const SettingsPage = () => {
   return (
     <Container>
       <h1>Settings</h1>
     </Container>
   );
 };
-
-export default SettingsPage;

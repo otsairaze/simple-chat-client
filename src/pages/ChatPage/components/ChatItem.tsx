@@ -1,10 +1,10 @@
-import { Typography } from "../../../shared/shared";
+import { Typography } from "../../../components/shared";
 
 export const ChatItem = () => {
   return (
-    <div className="p-4 w-[350px] max-w-[350px] bg-white shadow-md flex gap-3 items-center flex-shrink-0">
+    <div className="p-4 w-[350px] max-w-[350px] flex gap-3 items-center">
       <img
-        className="rounded-full w-12 h-12 object-cover"
+        className="rounded-full w-[40px] h-[40px] object-cover"
         src="/image.jpg"
         alt="profileImage"
       />

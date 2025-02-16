@@ -24,9 +24,9 @@
   },
   "include": [
     "src",
-    "public/svg",
+    "src/assets/svg",
     "src/shared/components",
-    "public/svg",
+    "src/assets/svg",
     "src/shared/shared"
   ]
 }

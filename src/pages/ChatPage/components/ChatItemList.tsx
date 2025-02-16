@@ -1,7 +1,7 @@
 import { ChatItem } from "./ChatItem";
 export const ChatItemList = () => {
   return (
-    <div>
+    <div className="border-r">
       <ChatItem />
       <ChatItem />
       <ChatItem />

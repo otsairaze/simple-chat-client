@@ -1,0 +1,14 @@
+.button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.outlined {
+  border: 1px solid #000;
+  border-radius: 20px;
+}
+
+.none {
+  border: none;
+}
