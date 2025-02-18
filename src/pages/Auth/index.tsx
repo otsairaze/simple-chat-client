@@ -16,9 +16,7 @@ export const AuthPage = () => {
       <div className="bg-white rounded-2xl max-w-[400px] w-full p-[50px]">
         <RenderForm activeForm={activeForm} />
         <Button onClick={handleChangeForm} variant="none" className="mt-5">
-          {activeForm === "Login"
-            ? "You don't have an account? Sign up"
-            : "Already have an account? Sign in"}
+          {activeForm === "Login" ? "You don't have an account? Sign up" : "Already have an account? Sign in"}
         </Button>
       </div>
     </div>

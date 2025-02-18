@@ -3,35 +3,23 @@ import { Button, InputCompound } from "../../../components/ui";
 import { useRegisterForm } from "../hooks/useRegisterForm";
 
 export const RegisterForm = () => {
-  const { errors, register, onSubmit } = useRegisterForm();
+  const { errors, register, onSubmit, handleSubmit } = useRegisterForm();
 
   return (
-    <form className="flex flex-col gap-[35px]" onSubmit={onSubmit}>
+    <form className="flex flex-col gap-[35px]" onSubmit={handleSubmit(onSubmit)}>
       <Typography className="text-center" variant="title28_semibold" tag="h2">
         Registration
       </Typography>
       <InputCompound>
-        <InputCompound.Input
-          placeholder="Username"
-          variant="primary"
-          {...register("username")}
-        />
+        <InputCompound.Input placeholder="Username" variant="primary" {...register("username")} />
         <InputCompound.Error error={errors.username?.message} />
       </InputCompound>
       <InputCompound>
-        <InputCompound.Input
-          placeholder="Email"
-          variant="primary"
-          {...register("email")}
-        />
+        <InputCompound.Input placeholder="Email" variant="primary" {...register("email")} />
         <InputCompound.Error error={errors.email?.message} />
       </InputCompound>
       <InputCompound>
-        <InputCompound.Input
-          placeholder="Password"
-          variant="primary"
-          {...register("password")}
-        />
+        <InputCompound.Input type="password" placeholder="Password" variant="primary" {...register("password")} />
         <InputCompound.Error error={errors.password?.message} />
       </InputCompound>
       <Button variant="outlined" type="submit">

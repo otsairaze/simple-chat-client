@@ -10,19 +10,11 @@ export const LoginForm = () => {
         Authorization
       </Typography>
       <InputCompound>
-        <InputCompound.Input
-          placeholder="Email"
-          variant="primary"
-          {...register("email")}
-        />
+        <InputCompound.Input placeholder="Email" variant="primary" {...register("email")} />
         <InputCompound.Error error={errors.email?.message} />
       </InputCompound>
       <InputCompound>
-        <InputCompound.Input
-          placeholder="Password"
-          variant="primary"
-          {...register("password")}
-        />
+        <InputCompound.Input placeholder="Password" variant="primary" {...register("password")} />
         <InputCompound.Error error={errors.password?.message} />
       </InputCompound>
       <Button variant="outlined" type="submit">
