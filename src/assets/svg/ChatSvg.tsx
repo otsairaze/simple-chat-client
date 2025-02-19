@@ -2,21 +2,9 @@ import { ComponentProps } from "react";
 
 export const ChatSvg = (props: ComponentProps<"svg">) => {
   return (
-    <svg
-      {...props}
-      height="35px"
-      width="35px"
-      version="1.1"
-      id="Layer_1"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 512 512"
-    >
+    <svg {...props} height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-      <g
-        id="SVGRepo_tracerCarrier"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      ></g>
+      <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
       <g id="SVGRepo_iconCarrier">
         <g>
           <g>

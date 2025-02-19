@@ -4,7 +4,7 @@ import styles from "./Typography.module.css";
 
 type tag = "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
 
-type TypographyVariant = "title28_semibold" | "title16_regular";
+type TypographyVariant = "title28_semibold" | "title16_regular" | "title20_semibold";
 
 interface TypographyProps {
   tag: tag;
@@ -13,17 +13,8 @@ interface TypographyProps {
   className?: string;
 }
 
-export const Typography = ({
-  tag,
-  children,
-  variant,
-  className,
-}: TypographyProps) => {
+export const Typography = ({ tag, children, variant, className }: TypographyProps) => {
   const Component = tag;
 
-  return (
-    <Component className={clsx(styles[variant], className)}>
-      {children}
-    </Component>
-  );
+  return <Component className={clsx(styles[variant], className)}>{children}</Component>;
 };

@@ -3,10 +3,10 @@ import { Button, InputCompound } from "../../../components/ui";
 import { useRegisterForm } from "../hooks/useRegisterForm";
 
 export const RegisterForm = () => {
-  const { errors, register, onSubmit, handleSubmit } = useRegisterForm();
+  const { errors, register, onSubmit } = useRegisterForm();
 
   return (
-    <form className="flex flex-col gap-[35px]" onSubmit={handleSubmit(onSubmit)}>
+    <form className="flex flex-col gap-[35px]" onSubmit={onSubmit}>
       <Typography className="text-center" variant="title28_semibold" tag="h2">
         Registration
       </Typography>

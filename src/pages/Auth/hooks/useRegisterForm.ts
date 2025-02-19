@@ -16,16 +16,16 @@ export const useRegisterForm = () => {
 
   const navigate = useNavigate();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = handleSubmit(async (data: any) => {
     try {
       const response = await postRegister(data);
       console.log(response);
-      localStorage.setItem("token", response.data.accessToken);
+      localStorage.setItem("token", response.data);
       navigate("/");
     } catch (error) {
       console.error("Ошибка регистрации:", error);
     }
-  };
+  });
 
   return {
     register,
