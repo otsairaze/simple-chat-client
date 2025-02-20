@@ -1,14 +1,8 @@
 import clsx from "clsx";
-import React, {
-  ComponentProps,
-  createContext,
-  forwardRef,
-  useContext,
-  useId,
-} from "react";
+import React, { ComponentProps, createContext, forwardRef, ReactNode, useContext, useId } from "react";
 import styles from "./Input.module.css";
 
-type InputVariant = "primary" | "secondary";
+type InputVariant = "primary" | "secondary" | "search";
 
 interface InputContextProps {
   id?: string;
@@ -23,11 +17,7 @@ interface InputCompound {
   children: React.ReactNode;
 }
 
-export const InputCompound = ({
-  id: externalId,
-  children,
-  className,
-}: InputCompound) => {
+export const InputCompound = ({ id: externalId, children, className }: InputCompound) => {
   const id = externalId ?? useId();
   return (
     <InputContext.Provider value={{ id }}>
@@ -42,24 +32,10 @@ interface InputProps extends ComponentProps<"input"> {
   className?: string;
 }
 
-InputCompound.Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ error, className, variant = "primary", ...props }, ref) => {
-    const { id } = React.useContext(InputContext);
-    return (
-      <input
-        className={clsx(
-          styles.input,
-          styles[variant],
-          error && styles.error,
-          className
-        )}
-        ref={ref}
-        id={id}
-        {...props}
-      />
-    );
-  }
-);
+InputCompound.Input = forwardRef<HTMLInputElement, InputProps>(({ error, className, variant = "primary", ...props }, ref) => {
+  const { id } = React.useContext(InputContext);
+  return <input className={clsx(styles.input, styles[variant], error && styles.error, className)} ref={ref} id={id} {...props} />;
+});
 
 type TitleProps<Tag extends TagVariant> = ComponentProps<Tag> & {
   id: string;
@@ -70,12 +46,7 @@ type TitleProps<Tag extends TagVariant> = ComponentProps<Tag> & {
 
 type TagVariant = "h2" | "h3" | "h4" | "h5" | "h6" | "p";
 
-InputCompound.Title = <Tag extends TagVariant = "h2">({
-  tag = "h2",
-  className,
-  children,
-  ...props
-}: TitleProps<Tag>) => {
+InputCompound.Title = <Tag extends TagVariant = "h2">({ tag = "h2", className, children, ...props }: TitleProps<Tag>) => {
   const ComponentTitle = tag;
 
   const { id } = useContext(InputContext);
@@ -95,7 +66,20 @@ interface ErrorProps {
 }
 
 InputCompound.Error = ({ error, className }: ErrorProps) => {
+  return error && <span className={clsx(styles.error, className)}>{error}</span>;
+};
+
+interface InputCompoundPropsSvg extends ComponentProps<"div"> {
+  children: ReactNode;
+  className?: string;
+}
+
+InputCompound.SvgInner = ({ children, className, ...props }: InputCompoundPropsSvg) => {
   return (
-    error && <span className={clsx(styles.error, className)}>{error}</span>
+    <>
+      <div className={clsx(styles.svg_inner, className)} {...props}>
+        {children}
+      </div>
+    </>
   );
 };

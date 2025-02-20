@@ -3,10 +3,6 @@ export const ChatItemList = () => {
   return (
     <div>
       <ChatItem />
-      <ChatItem />
-      <ChatItem />
-      <ChatItem />
-      <ChatItem />
     </div>
   );
 };

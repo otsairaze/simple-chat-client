@@ -4,15 +4,6 @@
 
 body {
   background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(204, 204, 250, 1) 0%,
-    rgba(154, 167, 251, 1) 26%,
-    rgba(102, 141, 254, 1) 64%,
-    rgba(102, 228, 254, 1) 100%
-  );
-  /* height: 100vh;
-  width: 100%; */
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(204, 204, 250, 1) 0%, rgba(154, 167, 251, 1) 26%, rgba(102, 141, 254, 1) 64%, rgba(102, 228, 254, 1) 100%);
   color: #000;
 }

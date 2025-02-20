@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ChatSvg, FriendsSvg, SettingsSvg } from "../../../../../assets/svg";
+import { ChatSvg, FriendsSvg, LogoutSvg, SettingsSvg } from "../../../../../assets/svg";
 
 export const useMenu = () => {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ export const useMenu = () => {
     {
       title: "Exit",
       path: "/auth",
-      icon: SettingsSvg,
+      icon: LogoutSvg,
       onClick: handleLogout,
     },
   ];
