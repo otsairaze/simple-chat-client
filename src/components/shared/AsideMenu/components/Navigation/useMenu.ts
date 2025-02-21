@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ChatSvg, FriendsSvg, LogoutSvg, SettingsSvg } from "../../../../../assets/svg";
+import { ChatSvg, LogoutSvg, SettingsSvg } from "../../../../../assets/svg";
 
 export const useMenu = () => {
   const navigate = useNavigate();
@@ -15,11 +15,6 @@ export const useMenu = () => {
       title: "Chat",
       path: "/chat",
       icon: ChatSvg,
-    },
-    {
-      title: "Contacts",
-      path: "/contacts",
-      icon: FriendsSvg,
     },
     {
       title: "Settings",

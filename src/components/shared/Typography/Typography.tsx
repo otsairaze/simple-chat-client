@@ -4,7 +4,7 @@ import styles from "./Typography.module.css";
 
 type tag = "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
 
-type TypographyVariant = "title28_semibold" | "title16_regular" | "title20_semibold";
+type TypographyVariant = "title28_semibold" | "title16_regular" | "title20_semibold" | "title18_medium";
 
 interface TypographyProps {
   tag: tag;

@@ -21,7 +21,7 @@ export const InputCompound = ({ id: externalId, children, className }: InputComp
   const id = externalId ?? useId();
   return (
     <InputContext.Provider value={{ id }}>
-      <div className={clsx(styles.wrapper, className)}>{children}</div>
+      <div className={clsx("text-white", styles.wrapper, className)}>{children}</div>
     </InputContext.Provider>
   );
 };
@@ -52,7 +52,7 @@ InputCompound.Title = <Tag extends TagVariant = "h2">({ tag = "h2", className, c
   const { id } = useContext(InputContext);
 
   return (
-    <label htmlFor={id}>
+    <label htmlFor={id} className="ml-5 text-white">
       <ComponentTitle className={clsx(styles.title, className)} {...props}>
         {children}
       </ComponentTitle>

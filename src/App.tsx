@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { MainLayout } from "./layouts/MainLayout";
-import { AuthPage, ChatPage, ContactsPage, SettingsPage } from "./pages";
+import { AuthPage, ChatPage, SettingsPage } from "./pages";
 import { routes } from "./routes";
 import { ProtectedRoute } from "./components/shared";
 
@@ -39,18 +39,6 @@ function App() {
             }
           />
         </Route>
-
-        <Route element={<MainLayout />}>
-          <Route
-            path={routes.contacts}
-            element={
-              <ProtectedRoute>
-                <ContactsPage />
-              </ProtectedRoute>
-            }
-          />
-        </Route>
-
         <Route>
           <Route path={routes.auth} element={<AuthPage />} />
         </Route>
