@@ -17,7 +17,7 @@ export default function Drawer({ isOpen, closeDrawer, children }: DrawerProps) {
     createPortal(
       <div className="relative" onClick={closeDrawer}>
         <div className="fixed inset-0 opacity-50 bg-black  z-40" />
-        <div onClick={(e) => e.stopPropagation()} className={`fixed top-[25%] right-[45%] w-90 h-[700px] rounded-2xl bg-[#17212B] shadow-2xl p-4 transform ${isOpen ? "translate-x-0" : "translate-x-full opacity-0"} transition-transform duration-300 ease-in-out z-50`}>
+        <div onClick={(e) => e.stopPropagation()} className={`fixed top-[25%] right-[45%] w-90 h-[500px] flex flex-col justify-between rounded-2xl bg-[#17212B] shadow-2xl p-4 transform ${isOpen ? "translate-x-0" : "translate-x-full opacity-0"} transition-transform duration-300 ease-in-out z-50`}>
           {children}
         </div>
       </div>,

@@ -9,6 +9,7 @@ interface Contact {
 
 interface AuthState {
   user: {
+    id: number;
     username: string;
     email: string;
     online: boolean;
@@ -18,6 +19,7 @@ interface AuthState {
 
 const initialState: AuthState = {
   user: {
+    id: 0,
     username: "",
     email: "",
     online: true,
@@ -30,10 +32,20 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, action) {
-      state.user = action.payload;
+      console.log("setUser payload:", action.payload);
+      state.user = {
+        ...action.payload,
+        contacts: action.payload.Contact || [],
+      };
+    },
+    addContact(state, action) {
+      if (!state.user.contacts) {
+        state.user.contacts = [];
+      }
+      state.user.contacts.push(action.payload);
     },
   },
 });
 
-export const { setUser } = authSlice.actions;
+export const { setUser, addContact } = authSlice.actions;
 export default authSlice.reducer;

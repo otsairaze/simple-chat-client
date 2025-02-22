@@ -9,7 +9,15 @@ export const ChatPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getMe().then((res) => dispatch(setUser(res.data)));
+    getMe()
+      .then((res) => {
+        console.log("getMe Response:", res);
+        console.log("User Data:", res.data);
+        dispatch(setUser(res.data));
+      })
+      .catch((err) => {
+        console.error("getMe Error:", err);
+      });
   }, []);
 
   return (

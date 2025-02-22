@@ -13,3 +13,10 @@
   border: none;
   padding: 0;
 }
+
+.primary {
+  background-color: #21334e;
+  color: #fff;
+  max-width: 150px;
+  width: 100%;
+}

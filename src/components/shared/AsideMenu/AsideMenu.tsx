@@ -31,6 +31,9 @@ export const AsideMenu = () => {
           <Typography variant="title16_regular" tag="p" className={styles.text}>
             {user.email}
           </Typography>
+          <Typography variant="title16_regular" tag="p" className={styles.text}>
+            {user.id}
+          </Typography>
         </div>
 
         <Navigation open={open} />
