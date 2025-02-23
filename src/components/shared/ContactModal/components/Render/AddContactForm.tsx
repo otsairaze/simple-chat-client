@@ -1,8 +1,8 @@
 import { Button, InputCompound } from "../../../../ui";
-import { useContact } from "../../hooks";
+import { useCreateContact } from "../../hooks";
 
 export const AddContactForm = () => {
-  const { errors, register, onSubmit } = useContact();
+  const { errors, register, onSubmit } = useCreateContact();
 
   return (
     <form className="flex flex-col gap-[35px] " onSubmit={onSubmit}>

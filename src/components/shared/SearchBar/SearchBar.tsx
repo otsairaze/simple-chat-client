@@ -5,23 +5,16 @@ import { useSearch } from "./hooks/useSearch";
 
 interface SearchBarProps {
   className?: string;
-  onSearch: (value: string) => void;
 }
 
-export const SearchBar = ({ className, onSearch }: SearchBarProps) => {
-  const { register } = useSearch();
+export const SearchBar = ({ className }: SearchBarProps) => {
+  const { onChangeValue, valueInput } = useSearch();
 
   return (
     <div className={clsx("mb-5", className)}>
       <InputCompound className="flex items-center">
         <SearchSvg className="absolute" />
-        <InputCompound.Input
-          placeholder="Search"
-          variant="search"
-          {...register("search", {
-            onChange: (e) => onSearch(e.target.value),
-          })}
-        />
+        <InputCompound.Input placeholder="Search" variant="search" onChange={onChangeValue} value={valueInput} />
       </InputCompound>
     </div>
   );

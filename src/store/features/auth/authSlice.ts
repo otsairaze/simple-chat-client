@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Contact {
   id: number;
@@ -7,14 +7,16 @@ interface Contact {
   createdAt: string;
 }
 
+interface UserTypes {
+  id: number;
+  username: string;
+  email: string;
+  online: boolean;
+  Contact: Contact[];
+}
+
 interface AuthState {
-  user: {
-    id: number;
-    username: string;
-    email: string;
-    online: boolean;
-    contacts: Contact[];
-  };
+  user: UserTypes;
 }
 
 const initialState: AuthState = {
@@ -23,7 +25,7 @@ const initialState: AuthState = {
     username: "",
     email: "",
     online: true,
-    contacts: [],
+    Contact: [],
   },
 };
 
@@ -31,18 +33,16 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setUser(state, action) {
-      console.log("setUser payload:", action.payload);
+    setUser(state, action: PayloadAction<UserTypes>) {
       state.user = {
         ...action.payload,
-        contacts: action.payload.Contact || [],
       };
     },
     addContact(state, action) {
-      if (!state.user.contacts) {
-        state.user.contacts = [];
+      if (!state.user.Contact) {
+        state.user.Contact = [];
       }
-      state.user.contacts.push(action.payload);
+      state.user.Contact.push(action.payload);
     },
   },
 });

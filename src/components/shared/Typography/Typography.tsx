@@ -1,20 +1,24 @@
 import clsx from "clsx";
-import React from "react";
+import React, { ComponentProps } from "react";
 import styles from "./Typography.module.css";
 
-type tag = "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
+type TagVariant = "h2" | "h3" | "h4" | "h5" | "h6" | "p";
 
 type TypographyVariant = "title28_semibold" | "title16_regular" | "title20_semibold" | "title18_medium";
 
-interface TypographyProps {
-  tag: tag;
+type TypographyProps<T extends TagVariant> = ComponentProps<T> & {
+  tag: TagVariant;
   children: React.ReactNode;
   variant: TypographyVariant;
   className?: string;
-}
+};
 
-export const Typography = ({ tag, children, variant, className }: TypographyProps) => {
+export const Typography = <T extends TagVariant = "p">({ tag, children, variant, className, ...props }: TypographyProps<T>) => {
   const Component = tag;
 
-  return <Component className={clsx(styles[variant], className)}>{children}</Component>;
+  return (
+    <Component className={clsx(styles[variant], className)} {...props}>
+      {children}
+    </Component>
+  );
 };

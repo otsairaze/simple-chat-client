@@ -32,7 +32,7 @@ export const AsideMenu = () => {
             {user.email}
           </Typography>
           <Typography variant="title16_regular" tag="p" className={styles.text}>
-            {user.id}
+            @{user.id}
           </Typography>
         </div>
 

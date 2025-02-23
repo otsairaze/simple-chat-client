@@ -3,17 +3,18 @@ import styles from "./Navigation.module.css";
 import { useMenu } from "./useMenu";
 import { Typography } from "../../..";
 import clsx from "clsx";
-import { Button } from "../../../../ui";
+import { Button, Modal } from "../../../../ui";
 import { FriendsSvg } from "../../../../../assets/svg";
-import Drawer from "../../../Drawer/Drawer";
 import { useDrawer } from "../../../../../hooks/useDrawer";
-import { Render } from "../../../Drawer/components";
+import { Render } from "../../../ContactModal/components";
 import React from "react";
-import { ContactType, ContactVariant } from "../../../Drawer/constants";
+import { ContactType, ContactVariant } from "../../../ContactModal/constants";
 
 export const Navigation = ({ open }: { open: boolean }) => {
   const { items } = useMenu();
+
   const [activeContact, setActiveContact] = React.useState<ContactType>(ContactVariant.Contact);
+
   const { isOpen, closeDrawer, openDrawer } = useDrawer();
 
   const onHandleClick = () => {
@@ -23,9 +24,9 @@ export const Navigation = ({ open }: { open: boolean }) => {
 
   return (
     <>
-      <Drawer isOpen={isOpen} closeDrawer={onHandleClick}>
-        <Render activeContact={activeContact} closeDrawer={closeDrawer} setActiveContact={setActiveContact} />
-      </Drawer>
+      <Modal isOpen={isOpen} closeDrawer={onHandleClick} className="max-w-[360px]">
+        <Render activeContact={activeContact} closeDrawer={onHandleClick} setActiveContact={setActiveContact} />
+      </Modal>
 
       <nav className={clsx(styles.navigation, open && styles.open)}>
         {items.map((item) => (
@@ -39,7 +40,7 @@ export const Navigation = ({ open }: { open: boolean }) => {
         <Button className="flex items-center py-1 text-start" variant="none" onClick={openDrawer}>
           <FriendsSvg />
           <Typography variant="title16_regular" tag="p" className={styles.text}>
-            1
+            Contacts
           </Typography>
         </Button>
       </nav>

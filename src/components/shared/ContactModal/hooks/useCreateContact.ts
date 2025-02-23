@@ -1,21 +1,21 @@
 import { useForm } from "react-hook-form";
-import { ContactSchema } from "../constants/ContactSchema";
+import { contactSchema, ContactSchema } from "../constants/ContactSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { postCreateContact } from "../../../../api/requests/contacts/createContact";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../../../store/features/auth/authSlice";
 
-export const useContact = () => {
+export const useCreateContact = () => {
   const user = useSelector((state: any) => state.auth.user);
 
   const dispatch = useDispatch();
 
-  const { register, formState, handleSubmit } = useForm({
+  const { register, formState, handleSubmit } = useForm<ContactSchema>({
     mode: "onSubmit",
-    resolver: zodResolver(ContactSchema),
+    resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = handleSubmit(async (data: any) => {
+  const onSubmit = handleSubmit(async (data: ContactSchema) => {
     try {
       console.log("User Data from Redux:", user);
       if (!user?.id) {
@@ -23,6 +23,8 @@ export const useContact = () => {
       }
 
       const response = await postCreateContact({ ...data, userId: user.id });
+
+      console.log(response);
 
       dispatch(addContact(response.data));
 

@@ -3,6 +3,7 @@ import { api } from "../../../instance";
 
 interface ContactProps {
   name: string;
+  userId: number;
   email: string;
 }
 

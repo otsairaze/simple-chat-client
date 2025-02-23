@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-import { AsideMenu, Container, SearchBar } from "../components/shared";
+import { AsideMenu, Container } from "../components/shared";
 
 export const MainLayout = () => {
   return (
@@ -8,7 +8,6 @@ export const MainLayout = () => {
       <div className="rounded-2xl bg-[#0E1621] flex">
         <AsideMenu />
         <main className="h-[90vh] w-full py-[30px]">
-          <SearchBar />
           <Outlet />
         </main>
       </div>

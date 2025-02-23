@@ -2,5 +2,6 @@ export const API_URL = {
   LOGIN: "/auth/login",
   REGISTER: "/auth/register",
   AUTHME: "/auth/me",
-  ADDCONTACT: "/users",
+  ADDCONTACT: "/contacts",
+  USERS: "/users",
 };
