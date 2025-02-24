@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { SearchBar, Typography } from "../../..";
-import { useFindContacts } from "../../../SearchBar/hooks/useFindContacts";
+import { useFindContacts } from "../../SearchBar/hooks/useFindContacts";
 
 interface ContactItemProps {
   name: string;
@@ -12,17 +12,10 @@ export const Contact = () => {
 
   const data = useSelector((state: any) => state.auth.user);
 
-  console.log(data, "data");
-
   return (
     <>
       <div className="flex flex-col justify-between">
-        <div className="flex flex-col gap-3">
-          <Typography variant="title18_medium" tag="h2" className="text-white">
-            Contacts
-          </Typography>
-          <SearchBar />
-        </div>
+        <SearchBar />
 
         <div>
           {valueInput.length === 0 && (
@@ -62,14 +55,3 @@ export const Contact = () => {
     </>
   );
 };
-
-{
-  /* <li key={item.id} className="flex items-center gap-4">
-<img src="./user.jpg" alt="user" className="w-[50px] h-[50px] rounded-full object-cover" />
-<div className="flex flex-col">
-  <Typography variant="title16_regular" tag="p" className="text-white">
-    {item.name}
-  </Typography>
-</div>
-</li> */
-}

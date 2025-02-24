@@ -3,5 +3,5 @@ export const API_URL = {
   REGISTER: "/auth/register",
   AUTHME: "/auth/me",
   ADDCONTACT: "/contacts",
-  USERS: "/users",
+  GETCONTACTS: "/contacts",
 };

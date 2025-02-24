@@ -29,16 +29,6 @@ function App() {
             }
           />
         </Route>
-        <Route element={<MainLayout />}>
-          <Route
-            path={routes.settings}
-            element={
-              <ProtectedRoute>
-                <SettingsPage />
-              </ProtectedRoute>
-            }
-          />
-        </Route>
         <Route>
           <Route path={routes.auth} element={<AuthPage />} />
         </Route>

@@ -1,5 +1,5 @@
-import { Button, InputCompound } from "../../../../ui";
-import { useCreateContact } from "../../hooks";
+import { Button, InputCompound } from "../../../ui";
+import { useCreateContact } from "../hooks";
 
 export const AddContactForm = () => {
   const { errors, register, onSubmit } = useCreateContact();

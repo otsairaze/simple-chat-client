@@ -1,48 +1,32 @@
-import { NavLink } from "react-router-dom";
 import styles from "./Navigation.module.css";
-import { useMenu } from "./useMenu";
-import { Typography } from "../../..";
 import clsx from "clsx";
-import { Button, Modal } from "../../../../ui";
-import { FriendsSvg } from "../../../../../assets/svg";
-import { useDrawer } from "../../../../../hooks/useDrawer";
-import { Render } from "../../../ContactModal/components";
+import { Modal, RenderContacts } from "../../../../ui";
 import React from "react";
-import { ContactType, ContactVariant } from "../../../ContactModal/constants";
+import { ContactModalType, ContactType } from "../../../../../types/Modal/ContactModalType";
+import { useDispatch, useSelector } from "react-redux";
+import { closeDrawer, ModalContent, openDrawer } from "../../../../../store/features";
+import { NavigationList } from "./components/NavigationList";
 
 export const Navigation = ({ open }: { open: boolean }) => {
-  const { items } = useMenu();
+  const [activeContact, setActiveContact] = React.useState<ContactType>(ContactModalType.Contact);
 
-  const [activeContact, setActiveContact] = React.useState<ContactType>(ContactVariant.Contact);
+  const dispatch = useDispatch();
 
-  const { isOpen, closeDrawer, openDrawer } = useDrawer();
+  const { isOpen, content } = useSelector((state: any) => state.modal);
 
   const onHandleClick = () => {
-    closeDrawer();
-    setActiveContact(ContactVariant.Contact);
+    dispatch(closeDrawer());
+    setActiveContact(ContactModalType.Contact);
   };
 
   return (
     <>
       <Modal isOpen={isOpen} closeDrawer={onHandleClick} className="max-w-[360px]">
-        <Render activeContact={activeContact} closeDrawer={onHandleClick} setActiveContact={setActiveContact} />
+        {content === ModalContent.Contacts && <RenderContacts activeContact={activeContact} closeDrawer={onHandleClick} setActiveContact={setActiveContact} />}
       </Modal>
 
       <nav className={clsx(styles.navigation, open && styles.open)}>
-        {items.map((item) => (
-          <NavLink key={item.path} to={item.path} className="flex items-center py-1" onClick={item.onClick}>
-            <item.icon />
-            <Typography variant="title16_regular" tag="p" className={styles.text}>
-              {item.title}
-            </Typography>
-          </NavLink>
-        ))}
-        <Button className="flex items-center py-1 text-start" variant="none" onClick={openDrawer}>
-          <FriendsSvg />
-          <Typography variant="title16_regular" tag="p" className={styles.text}>
-            Contacts
-          </Typography>
-        </Button>
+        <NavigationList openDrawer={openDrawer} dispatch={dispatch} />
       </nav>
     </>
   );

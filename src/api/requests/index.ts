@@ -1,3 +1,3 @@
 export * from "./auth";
 export * from "./contacts/createContact";
-export * from "./users";
+export * from "./contacts/getContacts";

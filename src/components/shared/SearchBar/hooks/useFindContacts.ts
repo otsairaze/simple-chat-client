@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getUsers } from "../../../../api";
+
 import { useSearch } from "./useSearch";
+import { getContacts } from "../../../../api/requests/contacts/getContacts";
 
 type UserQuery = {
   search: string;
@@ -13,8 +14,10 @@ export const useFindContacts = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await getUsers<UserQuery>({ search: valueInput });
+        const res = await getContacts<UserQuery>({ search: valueInput });
+
         setUsers(res.data);
+        console.log("Пользователи загружены:", res.data);
       } catch (error) {
         console.error("Ошибка при загрузке пользователей:", error);
       }

@@ -6,7 +6,7 @@ interface ContactLayoutProps {
   renderHeader?: () => React.ReactNode;
 }
 
-export const ContactLayout = ({ children, renderFooter, renderHeader }: ContactLayoutProps) => {
+export const SettingsLayout = ({ children, renderFooter, renderHeader }: ContactLayoutProps) => {
   return (
     <div>
       {renderHeader && <div>{renderHeader()}</div>}

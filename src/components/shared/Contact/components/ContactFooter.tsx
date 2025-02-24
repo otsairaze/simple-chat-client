@@ -1,4 +1,4 @@
-import { Button } from "../../../..";
+import { Button } from "../../../ui";
 
 interface ContactFooterProps {
   setActiveContact: () => void;
