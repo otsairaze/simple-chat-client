@@ -5,3 +5,6 @@ export { FriendsSvg } from "./FriendsSvg";
 export { LogoutSvg } from "./LogoutSvg";
 export { BurgerSvg } from "./BurgerSvg";
 export { CloseSvg } from "./CloseSvg";
+export { AccountSvg } from "./AccountSvg";
+export { SecuritySvg } from "./SecuritySvg";
+export { NotificationSvg } from "./NotificationSvg";

@@ -17,3 +17,7 @@ h6 {
   font-size: inherit;
   font-weight: inherit;
 }
+
+button {
+  cursor: pointer;
+}

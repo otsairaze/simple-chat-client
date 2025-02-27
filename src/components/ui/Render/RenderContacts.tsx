@@ -1,4 +1,4 @@
-import { Contact, ContactFooter } from "../..";
+import { AddContactForm, Contact, ContactFooter } from "../..";
 import { ContactLayout } from "../../../layouts";
 import { ContactModalType, ContactType } from "../../../types";
 
@@ -20,7 +20,7 @@ export const RenderContacts = ({ activeContact, closeDrawer, setActiveContact }:
     case ContactModalType.AddContact:
       return (
         <ContactLayout renderFooter={() => <ContactFooter btnText="Contact" setActiveContact={() => setActiveContact(ContactModalType.Contact)} closeDrawer={closeDrawer} />}>
-          <Contact />
+          <AddContactForm />
         </ContactLayout>
       );
   }

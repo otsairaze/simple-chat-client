@@ -6,9 +6,12 @@ import { ContactModalType, ContactType } from "../../../../../types/Modal/Contac
 import { useDispatch, useSelector } from "react-redux";
 import { closeDrawer, ModalContent, openDrawer } from "../../../../../store/features";
 import { NavigationList } from "./components/NavigationList";
+import { RenderSettings } from "../../../../ui/Render/RenderSettings";
+import { SettingsModalType, SettingsType } from "../../../../../types";
 
 export const Navigation = ({ open }: { open: boolean }) => {
   const [activeContact, setActiveContact] = React.useState<ContactType>(ContactModalType.Contact);
+  const [activeSettings, setActiveSettings] = React.useState<SettingsType>(SettingsModalType.Settings);
 
   const dispatch = useDispatch();
 
@@ -23,6 +26,7 @@ export const Navigation = ({ open }: { open: boolean }) => {
     <>
       <Modal isOpen={isOpen} closeDrawer={onHandleClick} className="max-w-[360px]">
         {content === ModalContent.Contacts && <RenderContacts activeContact={activeContact} closeDrawer={onHandleClick} setActiveContact={setActiveContact} />}
+        {content === ModalContent.Settings && <RenderSettings closeDrawer={onHandleClick} activeSettings={activeSettings} setActiveSettings={setActiveSettings} />}
       </Modal>
 
       <nav className={clsx(styles.navigation, open && styles.open)}>
