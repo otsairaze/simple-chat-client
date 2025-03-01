@@ -22,11 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": [
-    "src",
-    "src/assets/svg",
-    "src/shared/components",
-    "src/assets/svg",
-    "src/shared/shared"
-  ]
+  "include": ["src", "src/assets/svg", "src/shared/components", "src/assets/svg", "src/shared/shared", "**/*.d.ts"]
 }

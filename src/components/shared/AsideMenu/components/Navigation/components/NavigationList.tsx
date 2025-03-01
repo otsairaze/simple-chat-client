@@ -1,5 +1,5 @@
 import { Button } from "../../../../../ui";
-import { FriendsSvg, SettingsSvg } from "../../../../../../assets/svg";
+import { FriendsSvg, LogoutSvg, SettingsSvg } from "../../../../../../assets/svg";
 import { Typography } from "../../../../..";
 import { ModalContent } from "../../../../../../store/features";
 import styles from "./NavigationList.module.css";
@@ -22,6 +22,12 @@ export const NavigationList = ({ openDrawer, dispatch }: NavigationListProps) =>
         <FriendsSvg />
         <Typography variant="title16_regular" tag="p" className={styles.text}>
           Settings
+        </Typography>
+      </Button>
+      <Button variant="none" className="flex">
+        <LogoutSvg />
+        <Typography variant="title16_regular" tag="p" className={styles.text}>
+          Logout
         </Typography>
       </Button>
     </>

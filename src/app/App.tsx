@@ -1,11 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { MainLayout } from "../layouts/MainLayout";
-import { AuthPage, ChatPage, SettingsPage } from "../pages";
+import { AuthPage, ChatPage } from "../pages";
 import { routes } from "./routes";
 import { ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
+import { useEffect } from "react";
+import { socket } from "../server/client";
 
 function App() {
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log("socket connected");
+    });
+  }, []);
+
   return (
     <Router>
       <Routes>

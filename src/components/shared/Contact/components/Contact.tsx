@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { SearchBar, Typography } from "../../..";
-import { useFindContacts } from "../../SearchBar/hooks/useFindContacts";
+import { SearchContact, Typography } from "../../..";
+import { useFindContacts } from "../../SearchContact/hooks/useFindContacts";
 
 interface ContactItemProps {
   name: string;
@@ -15,7 +15,7 @@ export const Contact = () => {
   return (
     <>
       <div className="flex flex-col justify-between">
-        <SearchBar />
+        <SearchContact />
 
         <div>
           {valueInput.length === 0 && (

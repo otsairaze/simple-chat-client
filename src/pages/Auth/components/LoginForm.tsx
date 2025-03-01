@@ -6,7 +6,7 @@ export const LoginForm = () => {
   const { errors, register, onSubmit } = useLoginForm();
   return (
     <form className="flex flex-col gap-[35px]" onSubmit={onSubmit}>
-      <Typography className="text-center" variant="title28_semibold" tag="h2">
+      <Typography className="text-center text-black" variant="title28_semibold" tag="h2">
         Authorization
       </Typography>
       <InputCompound>

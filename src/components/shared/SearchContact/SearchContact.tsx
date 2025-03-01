@@ -7,7 +7,7 @@ interface SearchBarProps {
   className?: string;
 }
 
-export const SearchBar = ({ className }: SearchBarProps) => {
+export const SearchContact = ({ className }: SearchBarProps) => {
   const { onChangeValue, valueInput } = useSearch();
 
   return (

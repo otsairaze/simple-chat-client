@@ -12,7 +12,7 @@ export const useFindContacts = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchContacts = async () => {
       try {
         const res = await getContacts<UserQuery>({ search: valueInput });
 
@@ -23,7 +23,7 @@ export const useFindContacts = () => {
       }
     };
 
-    fetchUsers();
+    fetchContacts();
   }, [valueInput]);
 
   return { users, valueInput };
