@@ -5,7 +5,8 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../store/features/auth/authSlice";
 import { SearchGlobal, Typography } from "../../components/shared";
 import { useFindUsers } from "../../components/shared/SearchGlobal/hooks/useFindUsers";
-import { ChatUser, User } from "../../types/User/user";
+import { ChatUser, User } from "../../types/User/User";
+import { ChatSender } from "./components";
 
 export const ChatPage = () => {
   const [chat, setChat] = useState({ chatMembers: [] });
@@ -28,7 +29,7 @@ export const ChatPage = () => {
       <div>
         <SearchGlobal />
 
-        <div>
+        <div className="w-[350px] p-5 max-w-[350px] bg-[#17212b]">
           {valueInput.length === 0
             ? chat.chatMembers.map((data: ChatUser) => (
                 <div key={data.chat.id}>
@@ -39,9 +40,9 @@ export const ChatPage = () => {
               ))
             : valueInput.length > 0 &&
               users.map((user: User) => (
-                <div className="p-5 w-[350px] max-w-[350px] flex gap-3 items-center bg-[#17212b]">
+                <div className="flex p-5 gap-3">
                   <img className="rounded-full w-[40px] h-[40px] object-cover" src="/image.jpg" alt="profileImage" />
-                  <div className="flex flex-col gap-1 w-full">
+                  <div className="flex flex-col">
                     <Typography variant="title16_regular" tag="p" className="text-white">
                       {user.username}
                     </Typography>
@@ -53,12 +54,7 @@ export const ChatPage = () => {
               ))}
         </div>
       </div>
-
-      <div className="w-full flex justify-center items-center text-white">
-        <Typography variant="title16_regular" tag="p">
-          Select a chat to start messaging
-        </Typography>
-      </div>
+      <ChatSender />
     </div>
   );
 };
